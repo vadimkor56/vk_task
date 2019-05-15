@@ -3,15 +3,15 @@ $( document ).ready(function() {
   $('.col-wrapper[data-column="1"]').show();
   
   $(".add-column").click(function() {
-    $(this).hide();
+    $(this).slideUp('normal');
     let column = $(this).attr('data-column');
-    $(`.create-column[data-column="${column}"]`).show();
+    $(`.create-column[data-column="${column}"]`).slideDown('normal');
   });
   
   $(".close-button").click(function() {
     let column = $(this).parent().attr('data-column');
-    $(`.add-column[data-column="${column}"]`).show();
-    $(`.create-column[data-column="${column}"]`).hide();
+    $(`.add-column[data-column="${column}"]`).slideDown('normal');
+    $(`.create-column[data-column="${column}"]`).slideUp('normal');
   });
   
   $(".create-column-button").click(function() {
@@ -21,7 +21,7 @@ $( document ).ready(function() {
     if (columnName === "") {
       return;
     } else {
-      $(`.create-column[data-column="${column}"]`).hide();
+      $(`.create-column[data-column="${column}"]`).slideUp('normal');
       $(`.column[data-column="${column}"]`)
         .html(`<h3>${columnName}</h3>
               <div class="cards" data-column="${column}">
@@ -41,6 +41,13 @@ $( document ).ready(function() {
           helper: function() {
             var width = $(this).outerWidth();
             return $(this).clone().appendTo("body").width(width);
+          },
+          revert: true,
+          start: function(e, ui) {
+            $(this).hide();
+          },
+          stop: function(e, ui) {
+            $(this).show();
           }
         })
         .droppable({
@@ -50,7 +57,7 @@ $( document ).ready(function() {
           drop: function(e, ui) {
             $(e.target).after(ui.draggable[0]);
             
-            $(ui.draggable[0]).css('animation-play-state', 'running');
+            $(ui.draggable[0]).show().css('animation-play-state', 'running');
             
             setTimeout(function() {
               $(ui.draggable[0]).css('animation-play-state', 'paused');
@@ -67,21 +74,21 @@ $( document ).ready(function() {
 
         });
 
-      $(`.col-wrapper[data-column="${parseInt(column) + 1}"]`).show();
+      $(`.col-wrapper[data-column="${parseInt(column) + 1}"]`).slideDown('normal');
     }
   });
   
  
   $(document).on('click', '.add-card', function() {
-    $(this).hide();
+    $(this).slideUp('normal').addClass('active');;
     let column = $(this).attr('data-column');
-    $(`.create-card[data-column="${column}"]`).show();
+    $(`.create-card[data-column="${column}"]`).slideDown('normal');
   });
   
   $(document).on('click', '.card-close-button', function() {
     let column = $(this).parent().attr('data-column');
-    $(`.add-card[data-column="${column}"]`).show();
-    $(`.create-card[data-column="${column}"]`).hide();
+    $(`.add-card[data-column="${column}"]`).slideDown('normal');
+    $(`.create-card[data-column="${column}"]`).slideUp('normal');
   });
   
   $(document).on("click", ".create-card-button", function() {
@@ -91,8 +98,8 @@ $( document ).ready(function() {
     if (cardName === "") {
       return;
     } else {
-      $(`.add-card[data-column="${column}"]`).show();
-      $(`.create-card[data-column="${column}"]`).hide();
+      $(`.add-card[data-column="${column}"]`).slideDown('normal');
+      $(`.create-card[data-column="${column}"]`).slideUp('normal');
       $(`.cards[data-column="${column}"]`)
         .append(`<div class="card">${cardName}</div>`);
       
@@ -103,8 +110,14 @@ $( document ).ready(function() {
       $(`.cards[data-column="${column}"]`).children().last()
         .draggable({
           helper: function() {
-            var width = $(this).outerWidth();
+            let width = $(this).outerWidth();
             return $(this).clone().appendTo("body").width(width);
+          },
+          start: function(e, ui) {
+            $(this).hide();
+          },
+          stop: function(e, ui) {
+            $(this).show();
           }
         })
         .droppable({

@@ -28,12 +28,12 @@ $( document ).ready(function() {
                 <div class="card empty-card"></div>
               </div>
               <div class="add-card" data-column="${column}">
-                <span><i class="fas fa-plus mr-1"></i> Добавить еще одну карточку</span>
+                <span><img class="plus-img" src="images/plus.svg" alt="Добавить"> Добавить еще одну карточку</span>
               </div>
               <div class="create-card" data-column="${column}">
-                <input class="card-name-input" type="text" placeholder="Введите название карточки">
+                <textarea class="card-name-input" type="text" placeholder="Введите название карточки"></textarea>
                 <button class="create-card-button">Добавить карточку</button>
-                <button class="card-close-button"><i class="fas fa-times"></i></button>
+                <button class="card-close-button"><img src="images/cross.svg" alt="Закрыть"></button>
               </div>`);
       
       $(`.cards[data-column="${column}"]`).children().last()
@@ -86,8 +86,8 @@ $( document ).ready(function() {
   
   $(document).on("click", ".create-card-button", function() {
     let column = $(this).parent().attr('data-column');
-    let cardName = $(`.create-card[data-column="${column}"] input`).val();
-    $(`.create-card[data-column="${column}"] input`).val('');
+    let cardName = $(`.create-card[data-column="${column}"] textarea`).val();
+    $(`.create-card[data-column="${column}"] textarea`).val('');
     if (cardName === "") {
       return;
     } else {

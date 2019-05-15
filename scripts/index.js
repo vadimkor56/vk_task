@@ -66,10 +66,10 @@ $(document).ready(function () {
                         $(this).removeClass("over").css('margin-bottom', '0px');
                     },
                     over: function (e, ui) {
-                        $(this).addClass("over").css('margin-bottom', '53px');
+                        $(this).addClass("over").animate({marginBottom: '53px'}, 300);
                     },
                     out: function (e, ui) {
-                        $(this).removeClass("over").css('margin-bottom', '0px');
+                        $(this).removeClass("over").animate({marginBottom: '0px'}, 300);
                     },
 
                 });
@@ -78,10 +78,16 @@ $(document).ready(function () {
         }
     });
 
+    $(".column-name-input").on('keypress', function (e) {
+        if (e.which === 13) {
+            let column = $(this).parent().attr('data-column');
+            $(`.create-column[data-column="${column}"] .create-column-button`).click();
+        }
+    });
+
 
     $(document).on('click', '.add-card', function () {
         $(this).slideUp('normal').addClass('active');
-        ;
         let column = $(this).attr('data-column');
         $(`.create-card[data-column="${column}"]`).slideDown('normal');
     });
@@ -136,14 +142,13 @@ $(document).ready(function () {
                         $(this).removeClass("over").css('margin-bottom', '8px');
                     },
                     over: function (e, ui) {
-                        $(this).addClass("over").css('margin-bottom', '53px');
+                        $(this).addClass("over").animate({marginBottom: '53px'}, 300);
                     },
                     out: function (e, ui) {
-                        $(this).removeClass("over").css('margin-bottom', '8px');
+                        $(this).removeClass("over").animate({marginBottom: '8px'}, 300);
                     },
 
                 });
         }
     });
-
 });

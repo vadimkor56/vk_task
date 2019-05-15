@@ -1,160 +1,161 @@
 body, html {
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-image: url("../images/background.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 * {
-  -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 button, input, textarea {
-  outline: none !important;
+    outline: none !important;
 }
 
 #main-div {
-  padding: 20px;
+    padding: 20px;
 }
 
 .col-wrapper {
-  float: left;
-  box-sizing: border-box;
-  padding: 6px;
-  width: 25%;
-  display: none;
+    float: left;
+    box-sizing: border-box;
+    padding: 6px;
+    width: 25%;
+    display: none;
 }
 
 .column {
-  padding: 8px 12px;
-  max-height: 100%;
-  overflow-y: auto;
-  background: #DFE3E6;
-  border-radius: 3px;
+    padding: 8px 12px;
+    max-height: 100%;
+    overflow-y: auto;
+    background: #DFE3E6;
+    border-radius: 3px;
 }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 19px;
-  margin-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 0;
 }
 
 .cards {
-  max-height: calc(100vh - 190px);
-  overflow: auto;
+    max-height: calc(100vh - 190px);
+    overflow: auto;
 }
 
 .card {
-  box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25);
-  border-radius: 3px;
-  position: relative;
-  z-index: 9999;
+    box-shadow: 0 1px 4px rgba(9, 45, 66, 0.25);
+    border-radius: 3px;
+    position: relative;
+    z-index: 9999;
 
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 19px;
-  margin: 8px 0;
-  padding: 8px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    margin: 8px 0;
+    padding: 8px 12px;
 
-  -webkit-animation: swing 1s;
-  animation: swing 1s;
+    -webkit-animation: swing 1s;
+    animation: swing 1s;
 }
 
 .empty-card {
-  box-shadow: none;
-  background: #DFE3E6;
-  border: none;
-  padding: 5px;
-  margin: 0;
+    box-shadow: none;
+    background: #DFE3E6;
+    border: none;
+    padding: 5px;
+    margin: 0;
 }
 
 .add-card, .add-column {
-  padding-bottom: 4px;
-  margin-top: 5px;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 19px;
-  color: #6B808C;
-  cursor: pointer;
+    padding-bottom: 4px;
+    margin-top: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    color: #6B808C;
+    cursor: pointer;
 
 }
 
 .create-column, .create-card {
-  margin-top: 5px;
-  display: none;
+    margin-top: 5px;
+    display: none;
 }
 
 .column-name-input, .card-name-input {
-  width: 100%;
-  border: none;
-  padding: 10px;
-  background: #FFFFFF;
-  box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25);
-  border-radius: 3px;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px rgba(9, 45, 66, 0.25);
+    border-radius: 3px;
 
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 19px;
-} 
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+}
 
 .card-name-input {
-  resize: none;
+    resize: none;
 }
 
 .column-name-input::placeholder,
 .card-name-input::placeholder {
-  color: #B8B9BB;
-  opacity: 1;
+    color: #B8B9BB;
+    opacity: 1;
 }
 
 .create-column-button, .create-card-button {
-  margin-top: 8px;
-  padding: 7px 8px 4px;
-  background: #39C071;
-  border-radius: 3px;
+    margin-top: 8px;
+    padding: 7px 8px 4px;
+    background: #39C071;
+    border-radius: 3px;
 
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 19px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
 
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 .close-button, .card-close-button {
-  border: none;
-  background: none;
-  color: #6B808C;
-  margin-top: 8px;
-  float: right;
+    border: none;
+    background: none;
+    color: #6B808C;
+    margin-top: 8px;
+    float: right;
 }
 
 .over {
     position: relative;
 }
+
 .over:after {
     content: '';
     position: absolute;
@@ -167,7 +168,7 @@ h3 {
 }
 
 .overCards {
-  position: relative;
+    position: relative;
 }
 
 .overCards:after {
@@ -181,26 +182,27 @@ h3 {
 }
 
 .plus-img {
-  position: relative;
-  top: -1px;
-  margin-right: 8px;
+    position: relative;
+    top: -1px;
+    margin-right: 8px;
 }
 
-@media(max-width: 768px) {
-  .col-wrapper {
-    width: 50%;
-  }
+@media (max-width: 768px) {
+    .col-wrapper {
+        width: 50%;
+    }
 
-  .cards {
-    max-height: calc(50vh - 140px);
-  }
+    .cards {
+        max-height: calc(50vh - 140px);
+    }
+}
 
-@media(max-width: 576px) {
-  .col-wrapper {
-    width: 100%;
-  }
+@media (max-width: 576px) {
+    .col-wrapper {
+        width: 100%;
+    }
 
-  #main-div {
-    padding: 8px;
-  }
+    #main-div {
+        padding: 8px;
+    }
 }

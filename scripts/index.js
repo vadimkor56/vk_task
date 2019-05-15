@@ -66,10 +66,10 @@ $(document).ready(function () {
                         $(this).removeClass("over").css('margin-bottom', '0px');
                     },
                     over: function (e, ui) {
-                        $(this).addClass("over").animate({marginBottom: '53px'}, 300);
+                        $(this).addClass("over").animate({marginBottom: '53px'}, 50);
                     },
                     out: function (e, ui) {
-                        $(this).removeClass("over").animate({marginBottom: '0px'}, 300);
+                        $(this).removeClass("over").animate({marginBottom: '0px'}, 50);
                     },
 
                 });
@@ -142,10 +142,10 @@ $(document).ready(function () {
                         $(this).removeClass("over").css('margin-bottom', '8px');
                     },
                     over: function (e, ui) {
-                        $(this).addClass("over").animate({marginBottom: '53px'}, 300);
+                        $(this).addClass("over").animate({marginBottom: '53px'}, 50);
                     },
                     out: function (e, ui) {
-                        $(this).removeClass("over").animate({marginBottom: '8px'}, 300);
+                        $(this).removeClass("over").animate({marginBottom: '8px'}, 50);
                     },
 
                 });

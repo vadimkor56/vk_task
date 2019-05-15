@@ -63,13 +63,13 @@ $( document ).ready(function() {
               $(ui.draggable[0]).css('animation-play-state', 'paused');
             }, 1000);
             
-            $(this).removeClass("over").css('margin-bottom', '8px');
+            $(this).removeClass("over").css('margin-bottom', '0px');
           },
           over: function(e, ui) {
             $(this).addClass("over").css('margin-bottom', '53px');
           },
           out: function(e, ui) {
-            $(this).removeClass("over").css('margin-bottom', '8px');
+            $(this).removeClass("over").css('margin-bottom', '0px');
           },
 
         });

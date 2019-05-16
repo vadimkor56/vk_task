@@ -1,20 +1,21 @@
 $(document).ready(function () {
-    var numberOfColumns = 0;
+    var numberOfColumns = 1;
     $('.col-wrapper[data-column="1"]').show();
 
-    $(".add-column").click(function () {
+    $(document).on("click", ".add-column", function () {
         $(this).slideUp('normal');
         let column = $(this).attr('data-column');
         $(`.create-column[data-column="${column}"]`).slideDown('normal');
+        $(`.create-column[data-column="${column}"] input`).focus();
     });
 
-    $(".close-button").click(function () {
+    $(document).on("click", ".close-button", function () {
         let column = $(this).parent().attr('data-column');
         $(`.add-column[data-column="${column}"]`).slideDown('normal');
         $(`.create-column[data-column="${column}"]`).slideUp('normal');
     });
 
-    $(".create-column-button").click(function () {
+    $(document).on("click", ".create-column-button", function () {
         let column = $(this).parent().attr('data-column');
         let columnName = $(`.create-column[data-column="${column}"] input`).val();
         $(`.create-column[data-column="${column}"] input`).val('');
@@ -74,11 +75,26 @@ $(document).ready(function () {
 
                 });
 
+            numberOfColumns++;
+            $("#main-div").append(`
+            <div class="col-wrapper" data-column="${numberOfColumns}">
+                <div class="column" data-column="${numberOfColumns}">
+                    <div class="add-column" data-column="${numberOfColumns}">
+                        <span><img class="plus-img" src="images/plus.svg" alt="Добавить"> Добавить еще одну колонку</span>
+                    </div>
+        
+                    <div class="create-column" data-column="${numberOfColumns}">
+                        <input class="column-name-input" type="text" placeholder="Введите название колонки">
+                        <button class="create-column-button">Добавить колонку</button>
+                        <button class="close-button"><img src="images/cross.svg" alt="Закрыть"></button>
+                    </div>
+                </div>
+            </div>`);
             $(`.col-wrapper[data-column="${parseInt(column) + 1}"]`).slideDown('normal');
         }
     });
 
-    $(".column-name-input").on('keypress', function (e) {
+    $(document).on("keypress", ".column-name-input", function (e) {
         if (e.which === 13) {
             let column = $(this).parent().attr('data-column');
             $(`.create-column[data-column="${column}"] .create-column-button`).click();
@@ -90,6 +106,7 @@ $(document).ready(function () {
         $(this).slideUp('normal').addClass('active');
         let column = $(this).attr('data-column');
         $(`.create-card[data-column="${column}"]`).slideDown('normal');
+        $(`.create-card[data-column="${column}"] textarea`).focus();
     });
 
     $(document).on('click', '.card-close-button', function () {
